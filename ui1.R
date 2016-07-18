@@ -1,4 +1,4 @@
-ui1 <- function(){
+ui1 <- function() {
   tagList(
     div(id = "login",
         wellPanel(textInput("lsuId", "LSUid"),

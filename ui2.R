@@ -1,15 +1,17 @@
 #ui2 <- function(){tagList(tabPanel("Test"))}
 
 source('sidebarMenu.R')  
+source('datasets.R')
 ui2 <- shinyUI(fluidPage(
   # Application title
-  titlePanel("2D vs 3d graphs"),
+  titlePanel("App"),
   
   # Sidebar with a slider input for number of bins
   sidebarLayout(
     sidebarPanel(
+sideMenuOutput('sideMenu')
 
-    ),
+),
     
     # Show a plot of the generated distribution
     mainPanel(

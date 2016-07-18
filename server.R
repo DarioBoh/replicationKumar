@@ -13,6 +13,8 @@ Logged = FALSE;
 shinyServer(function(input, output) {
 
   source('datasets.R')
+  source('ui1.R')
+  source('ui2.R')
   all_values <- function(x) {
     if(is.null(x)) return(NULL)
     paste0(names(x), ": ", format(x), collapse = "<br />")}
@@ -47,9 +49,12 @@ shinyServer(function(input, output) {
     if (USER$Logged == TRUE) 
     {
       output$page <- renderUI({ ui2 })
-      print(ui)
+      #print(ui)
       
     }
   })
+  
+ callModule(sideMenu,'sideMenu') 
+#  output$question <- renderText({ xy[1] })
 
 })
