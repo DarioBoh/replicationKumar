@@ -1,6 +1,7 @@
 library(shinyjs)
 source('consentForm.R')
 ui1Output <-  function(id, label = "ui1") {
+  
   ns <- NS(id)
   
   shinyUI(fluidPage(

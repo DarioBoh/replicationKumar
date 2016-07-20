@@ -1,8 +1,13 @@
 
 all_values <- function(x) {
   if(is.null(x)) return(NULL)
-  paste0(names(x), ": ", format(x), collapse = "<br />")}
+  a <- paste0(names(x), ": ", format(x), collapse = "<br />")
+  #return a string with the hovered values
+  print(c(paste0(names(x), ": ", format(x)),as.character(Sys.time())))
+  return(a)
+}
 
+ 
 dt %>%   
   ggvis(x=~noiseLevel, y=~testScore, stroke=~temperature) %>% 
   layer_lines() %>% 
