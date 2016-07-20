@@ -7,8 +7,8 @@
 
 library(shiny)
 library(ggvis)
+library(shinyjs)
 
 Logged <-  FALSE
-
 
 htmlOutput("page")
