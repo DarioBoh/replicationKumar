@@ -11,7 +11,7 @@ ui1Output <-  function(id, label = "ui1") {
     consentForm,
     column(6,offset = 2,
     div(
-      id = "form",
+      id = ns("form"),
       textInput(ns("lsuId"), "LSU ID", ""),
       textInput(ns("age"), "Age", ""),
       selectInput(ns("gender"), "Select your gender",
@@ -23,10 +23,9 @@ ui1Output <-  function(id, label = "ui1") {
 
 ui1 <- function(input, output, session) {
   observe({
-    print('checking if fields are filled')
-    # enable/disable the submit button
-    print('The id is:', input$lsuId)
-    shinyjs::toggleState(id = "confirm", condition = all(input$lsuId !='', input$age!=''))
-    #shinyjs::toggleState(id = "confirm", condition = F)
+
+    A <- reactive({all(input$"ui1Output-lsuId" !='', input$"ui1Output-age"!='')})
+    print(A())
+    shinyjs::toggleState(id = "ui1Output-confirm", condition = A())
   })
 }
