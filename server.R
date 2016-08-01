@@ -1,39 +1,18 @@
-rm(list = ls())
-library(shiny)
-library(dplyr)
-library(ggvis)
-library(plotly)
-library(shinyjs)
-Logged <- FALSE
-shinyServer(function(input, output,session) {
 
-  source('charts.R')
+shinyServer(function(input, output) {
   
-  observeEvent(input$"ui1Output-confirm", {
-      Logged <<- TRUE
-    })
+  cond <- callModule(ui1, "ui1")
   
-  observe({
-    input$"ui1Output-confirm"
-    
-    if (Logged == FALSE) {
-      
-      output$page <- renderUI({ 
-        ui1Output('ui1Output') 
-        })
-      
-      output$lsuId <- renderText({ 
-        input$lsuId 
-        })
-      
-    }
-    if (Logged == TRUE) 
-    {
-      output$page <- renderUI({ ui2 })
-    }
+  
+  output$page <- renderUI({ui1UI('ui1')})
+  
+  observeEvent(cond(), {
+    callModule(ui2, "ui2")
+    output$page <- renderUI({ui2UI('ui2')})
   })
- 
- callModule(ui1,'ui1') 
- callModule(sideMenu,'sideMenu') 
-
+  
+  
+  
 })
+
+

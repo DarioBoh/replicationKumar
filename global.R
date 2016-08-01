@@ -1,4 +1,12 @@
-
+rm(list = ls())
+library(shiny)
+library(dplyr)
+library(ggvis)
+library(plotly)
+library(shinyjs)
+source('ui1.R')
 source('datasets.R')
-source('ui1.R') #login page
 source('ui2.R')
+source('consentForm.R')
+source('sidebarMenu.R')
+
