@@ -18,8 +18,17 @@ ui2UI <- function(id, label = "ui2UI") {
       ),
       # Show a plot of the generated distribution
       mainPanel(
+        tags$head(
+          tags$script(src="jquery-3.1.0.slim.js")
+          ),
+        
+        #code for recording mouse movements
         uiOutput('2d'),
-        ggvisOutput('ggvis')
+        ggvisOutput('ggvis'),
+        tags$div(id='log', log='value', "data-value"=''),
+        tags$div(id='scrollMove', cumDistance='value', position='value'),
+        tags$div(id='mouseMove', cumDistance='value', coorX="value",coorY='value'),
+        tags$script(src="moustrack.js")
       )
     )
   ))}

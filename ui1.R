@@ -23,10 +23,9 @@ ui1 <- function(input, output, session) {
   
   cond <- reactive({ input$confirm})
   
-  observeEvent(length(input$id)!="", {
-    toggleState("confirm")
+  observe({
+    toggleState("confirm", condition = nchar(input$id)>2 & nchar(input$age)>1 &  nchar(input$gender)>2)
   })
-  
   
   return(cond)
   
