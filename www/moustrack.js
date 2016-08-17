@@ -45,6 +45,27 @@ $(window).scroll( function() {
      
  });
         
-        
+
+
+//STOPWATCH
+
+setInterval(updateDisplay, 1); // every millisecond call updateDisplay
+
+function updateDisplay() {
+    var value = parseInt($('#timer').attr('elapsed'), 10);
+    value++;
+    $('#timer').attr('elapsed', value);
+
+}
+
+
+/* SUBMIT button id='ui2-submit'
+var clickCount= 0;
+function submitClick() {
+  clickCount ++;
+  $('#clicCount').attr('count', clickCount);
+  
+} */
+
         
         });

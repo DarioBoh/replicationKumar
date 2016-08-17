@@ -28,6 +28,9 @@ ui2UI <- function(id, label = "ui2UI") {
         tags$div(id='log', log='value', "data-value"=''),
         tags$div(id='scrollMove', cumDistance='value', position='value'),
         tags$div(id='mouseMove', cumDistance='value', coorX="value",coorY='value'),
+        tags$div(id='timer', elapsed='0', tags$span(class='value',0),'ms'),
+        tags$div(id='clickCount', count='0', timeStamp='0'),
+
         tags$script(src="moustrack.js")
       )
     )
